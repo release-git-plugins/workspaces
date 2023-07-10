@@ -34,7 +34,7 @@ jobs:
 
     strategy:
       matrix:
-        release-git-version: ["14.0.0", "14.1.0", "14.2.0", "15.2.0", "^15.0.0"]
+        release-git-version: ["^16.1.0"]
 
     steps:
     - uses: actions/checkout@v1
