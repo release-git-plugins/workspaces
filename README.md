@@ -19,11 +19,11 @@ folder and calling `npm publish`).
 Installation using your projects normal package manager, for example:
 
 ```sh
-npm install --save-dev @release-git-plugin/workspaces
+npm install --save-dev @release-git-plugins/workspaces
 
 # or
 
-yarn add --dev --ignore-workspace-root-check @release-git-plugin/workspaces
+yarn add --dev --ignore-workspace-root-check @release-git-plugins/workspaces
 ```
 
 Once installed, configure `release-git` to use the plugin.
@@ -34,7 +34,7 @@ For example, configuring via `package.json` would look like this:
 {
   "release-git": {
     "plugins": {
-      "@release-git-plugin/workspaces": true
+      "@release-git-plugins/workspaces": true
     }
   }
 }
@@ -50,7 +50,7 @@ would add the following to your `release-git` config (again showing
 {
   "release-git": {
     "plugins": {
-      "@release-git-plugin/workspaces": true
+      "@release-git-plugins/workspaces": true
     },
     "npm": false
   }
@@ -59,7 +59,7 @@ would add the following to your `release-git` config (again showing
 
 ## Configuration
 
-For the most part `@release-git-plugin/workspaces` "does the right thing", but
+For the most part `@release-git-plugins/workspaces` "does the right thing", but
 there are a few things that are configurable.
 
 A quick summary (in TypeScript syntax) of the supported options (more details
@@ -119,7 +119,7 @@ interface ReleaseItWorkSpacesConfiguration {
 
 ### skipChecks
 
-By default, `@release-git-plugin/workspaces` confirms that the `npm` registry is up
+By default, `@release-git-plugins/workspaces` confirms that the `npm` registry is up
 and running (via `npm ping`) and that you are authenticated properly (via `npm
 whoami`). If you'd prefer to avoid these checks (e.g. your custom `npm`
 registry does not support them) you can specify the `skipChecks` option:
@@ -128,7 +128,7 @@ registry does not support them) you can specify the `skipChecks` option:
 {
   "release-git": {
     "plugins": {
-      "@release-git-plugin/workspaces": {
+      "@release-git-plugins/workspaces": {
         "skipChecks": true
       }
     }
@@ -147,7 +147,7 @@ comes in:
 {
   "release-git": {
     "plugins": {
-      "@release-git-plugin/workspaces": {
+      "@release-git-plugins/workspaces": {
         "publish": false
       }
     }
@@ -161,7 +161,7 @@ published.
 
 ### distTag
 
-`@release-git-plugin/workspaces` uses the `latest` dist-tag when the
+`@release-git-plugins/workspaces` uses the `latest` dist-tag when the
 released version is a stable release and the prereleaseId when it is a
 prerelease (e.g. `beta` for `1.0.0-beta.1`). This is a good default setup, but
 there may be cases where you would like to specify a custom dist-tag to be
@@ -171,7 +171,7 @@ used.
 {
   "release-git": {
     "plugins": {
-      "@release-git-plugin/workspaces": {
+      "@release-git-plugins/workspaces": {
         "distTag": "lts"
       }
     }
@@ -183,7 +183,7 @@ used.
 
 The list of workspaces is gathered from the `package.json` in the current
 working directory. This is the same location that `npm install`/`yarn install` uses, and it
-is a great default for `@release-git-plugin/workspaces`. In some circumstances, the
+is a great default for `@release-git-plugins/workspaces`. In some circumstances, the
 workspace settings that `npm`/`yarn` should use differ from the actual locations that
 are published.  Most commonly this is due to a custom build script that emits
 the compiled and ready to publish packages into a different location (e.g.
@@ -193,7 +193,7 @@ the compiled and ready to publish packages into a different location (e.g.
 {
   "release-git": {
     "plugins": {
-      "@release-git-plugin/workspaces": {
+      "@release-git-plugins/workspaces": {
         "workspaces": ["dist/packages/*"]
       }
     }
@@ -202,7 +202,7 @@ the compiled and ready to publish packages into a different location (e.g.
 ```
 
 This value replaces the value from `package.json`, and given the above
-configuration `@release-git-plugin/workspaces` would publish each package (that was
+configuration `@release-git-plugins/workspaces` would publish each package (that was
 not private) in `dist/packages` folder.
 
 ### additionalManifests
@@ -217,7 +217,7 @@ you may publish an alternate `docs.json` file in your published package.
 {
   "release-git": {
     "plugins": {
-      "@release-git-plugin/workspaces": {
+      "@release-git-plugins/workspaces": {
         "additionalManifests": {
           "versionUpdates": ["dist/docs.json"]
       }
@@ -243,7 +243,7 @@ newly published versions.
 {
   "release-git": {
     "plugins": {
-      "@release-git-plugin/workspaces": {
+      "@release-git-plugins/workspaces": {
         "additionalManifests": {
           "dependencyUpdates": ["blueprints/*/package.json"]
       }
