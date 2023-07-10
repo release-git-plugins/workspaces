@@ -1,11 +1,11 @@
 {
   "name": "@release-git-plugins/workspaces",
   "version": "3.2.0",
-  "description": "release-it plugin for bumping and publishing workspaces",
+  "description": "release-git plugin for bumping and publishing workspaces",
   "keywords": [
     "release",
-    "release-it",
-    "release-it-plugin",
+    "release-git",
+    "release-git-plugin",
     "plugin"
   ],
   "repository": "https://github.com/release-git-plugins/workspaces",
@@ -52,13 +52,13 @@
     "lodash": "^4.17.21",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.2",
-    "release-it": "^15.2.0",
-    "release-it-lerna-changelog": "^5.0.0",
+    "release-git": "^15.2.0",
+    "release-git-lerna-changelog": "^5.0.0",
     "sinon": "^9.0.1",
     "tmp": "^0.1.0"
   },
   "peerDependencies": {
-    "release-it": "^14.0.0 || ^15.2.0"
+    "release-git": "^14.0.0 || ^15.2.0"
   },
   "engines": {
     "node": ">= 14"
@@ -71,9 +71,9 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "release-it": {
+  "release-git": {
     "plugins": {
-      "release-it-lerna-changelog": {
+      "release-git-lerna-changelog": {
         "infile": "CHANGELOG.md",
         "launchEditor": true
       }
